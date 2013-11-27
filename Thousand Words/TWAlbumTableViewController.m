@@ -8,7 +8,7 @@
 
 #import "TWAlbumTableViewController.h"
 
-@interface TWAlbumTableViewController ()
+@interface TWAlbumTableViewController () <UIAlertViewDelegate> // add alertview delegate which has its own protocol. do this in .m file because people don't need to know we are confroming to this delegate. It is private.
 
 @end
 
@@ -22,6 +22,17 @@
 {
 	if (!_albums) _albums = [[NSMutableArray alloc] init];
 	return _albums;
+}
+
+- (IBAction)albumBarButtonItemPressed:(UIBarButtonItem *)sender
+{
+	// set delegare to self which is our TWAlbumTableView, "delegate:self"
+	UIAlertView *newAlbumAlertView = [[UIAlertView alloc] initWithTitle:@"Enter New Album Name" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+	[newAlbumAlertView setAlertViewStyle:UIAlertViewStylePlainTextInput]; //Adds text field
+	[newAlbumAlertView show];
+}
+
+- (IBAction)addAlbum:(UIBarButtonItem *)sender {
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -49,6 +60,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark UIAlertView delegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex == 1) {
+		NSString *alertText = [alertView textFieldAtIndex:0].text;
+		NSLog(@"My new album is %@.", alertText);
+	}
+}
+
 
 #pragma mark - Table view data source
 

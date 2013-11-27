@@ -24,6 +24,7 @@
 		2EED646E184682DC00BF93DF /* Thousand_WordsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EED646D184682DC00BF93DF /* Thousand_WordsTests.m */; };
 		2EED647B1846899F00BF93DF /* TWAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EED647A1846899F00BF93DF /* TWAlbumTableViewController.m */; };
 		2EED647D18468AA900BF93DF /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EED647C18468AA900BF93DF /* Storyboard.storyboard */; };
+		2EED64801846990300BF93DF /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EED647F1846990300BF93DF /* Album.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +58,9 @@
 		2EED646D184682DC00BF93DF /* Thousand_WordsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Thousand_WordsTests.m; sourceTree = "<group>"; };
 		2EED64791846899F00BF93DF /* TWAlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWAlbumTableViewController.h; sourceTree = "<group>"; };
 		2EED647A1846899F00BF93DF /* TWAlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWAlbumTableViewController.m; sourceTree = "<group>"; };
-		2EED647C18468AA900BF93DF /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		2EED647C18468AA900BF93DF /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
+		2EED647E1846990300BF93DF /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Album.h; path = ../Album.h; sourceTree = "<group>"; };
+		2EED647F1846990300BF93DF /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Album.m; path = ../Album.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +92,6 @@
 		2EED6436184682DC00BF93DF = {
 			isa = PBXGroup;
 			children = (
-				2EED647C18468AA900BF93DF /* Storyboard.storyboard */,
 				2EED644A184682DC00BF93DF /* Thousand Words */,
 				2EED6467184682DC00BF93DF /* Thousand WordsTests */,
 				2EED6441184682DC00BF93DF /* Frameworks */,
@@ -121,6 +123,9 @@
 		2EED644A184682DC00BF93DF /* Thousand Words */ = {
 			isa = PBXGroup;
 			children = (
+				2EED647E1846990300BF93DF /* Album.h */,
+				2EED647F1846990300BF93DF /* Album.m */,
+				2EED647C18468AA900BF93DF /* Storyboard.storyboard */,
 				2EED64791846899F00BF93DF /* TWAlbumTableViewController.h */,
 				2EED647A1846899F00BF93DF /* TWAlbumTableViewController.m */,
 				2EED6459184682DC00BF93DF /* Images.xcassets */,
@@ -261,6 +266,7 @@
 				2EED6451184682DC00BF93DF /* main.m in Sources */,
 				2EED6455184682DC00BF93DF /* TWAppDelegate.m in Sources */,
 				2EED647B1846899F00BF93DF /* TWAlbumTableViewController.m in Sources */,
+				2EED64801846990300BF93DF /* Album.m in Sources */,
 				2EED6458184682DC00BF93DF /* Thousand_Words.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
