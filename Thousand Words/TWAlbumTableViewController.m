@@ -8,6 +8,7 @@
 
 #import "TWAlbumTableViewController.h"
 #import "Album.h"
+#import "TWCoreDataHelper.h"
 
 @interface TWAlbumTableViewController () <UIAlertViewDelegate> // add alertview delegate which has its own protocol. do this in .m file because people don't need to know we are confroming to this delegate. It is private.
 
@@ -50,6 +51,21 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Album"];
+	fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
+	
+	NSError *error = nil;
+	
+	NSArray *fetchedAlbums = [[TWCoreDataHelper managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+	
+	self.albums = [fetchedAlbums mutableCopy];
+	
+	[self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -73,8 +89,11 @@
 	// get app delegate and get NSManagedObjectContext from it
 	// id is a pointer to an object of type unknow so we don't need to add the asterisk before 'delegate'
 	// we get delegate back from our UIApplication. we get a delegate for entire application, and delegate knows what our NSManaged context is.  Apple calls NSManage context the 'scratch pad' in the application. We can think of it as a pinhole or window where we can reach the objects in our database. Each managed object or sub class thereof is belongs to only one ns managed context. In more advanced apps it is possible to have more than one context to manage core data. In short, our NSManaged object context allows us to interact with both query and save our NSManaged objects so we need this object to access them. And the we are going to get his is from our app delegate. Once we have this NSManaged object context which we know we need to interact with nsmanaged objects and we happen to know that album is an nsmanaged object, we are going to go ahead and create our new persistent managed object.
-	id delegate = [[UIApplication sharedApplication] delegate];
-	NSManagedObjectContext *context = [delegate managedObjectContext];
+	//id delegate = [[UIApplication sharedApplication] delegate];
+	//NSManagedObjectContext *context = [delegate managedObjectContext];
+	
+	// instead of the above, have refactored code which calls our helper class
+	NSManagedObjectContext *context = [TWCoreDataHelper managedObjectContext];
 	
 	// this function takes our entity name and it also takes a context, then we set album properties
 	Album *album = [NSEntityDescription insertNewObjectForEntityForName:@"Album" inManagedObjectContext:context];
