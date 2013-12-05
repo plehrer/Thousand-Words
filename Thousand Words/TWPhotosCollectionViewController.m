@@ -9,11 +9,23 @@
 #import "TWPhotosCollectionViewController.h"
 #import "TWPhotoCollectionViewCell.h"
 
-@interface TWPhotosCollectionViewController ()
+// need to conform to UINavigationControllerDelegate because UIImapickerControllerDelegate inherits from it.
+@interface TWPhotosCollectionViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (strong, nonatomic) NSMutableArray *photos; // of UIImages
 
 @end
 
 @implementation TWPhotosCollectionViewController
+
+// lazy instantiation
+-(NSMutableArray *)photos
+{
+	if (!_photos) {
+		_photos = [[NSMutableArray alloc] init];
+	}
+	return _photos;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +48,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)cameraBarButtonItemPressed:(UIBarButtonItem *)sender {
+
+	UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+	picker.delegate = self;
+	// is camera available?
+	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+		picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+	}
+	// else is photo album available?
+	else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]){
+		picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+	}// present view controller programmatically
+	[self presentViewController:picker animated:YES completion:nil];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 // have to write datasource methods ourselves
@@ -46,7 +73,7 @@
 	
 	TWPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
 	cell.backgroundColor = [UIColor whiteColor];
-	cell.imageView.image = [UIImage imageNamed:@"Astronaut.jpg"];
+	cell.imageView.image = self.photos[indexPath.row];
 	
 	
 	return cell;
@@ -55,7 +82,29 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	return 5;
+	return [self.photos count];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	// info contains data about the photo, not only image data, but metadata, we use the literal [] to access the dictionary, we access the edited image data using the key, if not availabel, we access data using the original image key
+	UIImage *image = info[UIImagePickerControllerEditedImage];
+	if (!image) {
+		image = info[UIImagePickerControllerOriginalImage];
+	}
+	// we add our image to our mutable array and reload our collection view
+	[self.photos addObject:image];
+	[self.collectionView reloadData];
+	
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+	
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -64,4 +113,11 @@
 
 
 
+
 @end
+
+
+
+
+
+
