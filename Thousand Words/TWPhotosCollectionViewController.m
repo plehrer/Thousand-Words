@@ -38,11 +38,17 @@
     }
     return self;
 }
-
+// query core data and get back all the photos for that specific album, section 9.6
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+	// NSSet is unordered collection where an object can not be repeated, also there is NSOrderedSet, photos is an NSSet property declared in Album.h. photos is the name of our relationship in our Album entity
+	NSSet *unorderedPhotos = self.album.photos;
+	NSSortDescriptor *dateDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+	NSArray *sortedPhotos = [unorderedPhotos sortedArrayUsingDescriptors:@[dateDescriptor]];
+	
+	self.photos = [sortedPhotos mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning
