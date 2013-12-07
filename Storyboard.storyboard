@@ -45,6 +45,54 @@
             </objects>
             <point key="canvasLocation" x="645" y="-36"/>
         </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="Xab-xu-ZNI">
+            <objects>
+                <viewController id="Y9j-uu-c1x" customClass="TWPhotoDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gml-87-go7"/>
+                        <viewControllerLayoutGuide type="bottom" id="WzE-Eo-DeZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ehf-UR-Zsp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ikq-R2-oho">
+                                <rect key="frame" x="0.0" y="64" width="320" height="430"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6P0-zh-Dfa">
+                                <rect key="frame" x="14" y="518" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Filter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addFilterButtonPrtessed:" destination="Y9j-uu-c1x" eventType="touchUpInside" id="nfD-Ra-18k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePO-I2-p0Y">
+                                <rect key="frame" x="256" y="518" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="Y9j-uu-c1x" eventType="touchUpInside" id="tGh-z7-LLM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0hC-vt-jec"/>
+                    <connections>
+                        <outlet property="imageView" destination="Ikq-R2-oho" id="VzS-aF-ZAJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7TP-Bq-zmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1499" y="-36"/>
+        </scene>
         <!--Photos Collection View Controller-->
         <scene sceneID="A1e-4k-mGL">
             <objects>
@@ -67,6 +115,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="Y9j-uu-c1x" kind="push" identifier="Detail Segue" id="Ean-h5-Hs7"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

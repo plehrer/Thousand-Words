@@ -14,6 +14,7 @@
 		2EBBC28F185386C300AC5C4E /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBBC28E185386C300AC5C4E /* Album.m */; };
 		2EBBC292185386C300AC5C4E /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBBC291185386C300AC5C4E /* Photo.m */; };
 		2EBBC296185388EC00AC5C4E /* TWPictureDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBBC295185388EC00AC5C4E /* TWPictureDataTransformer.m */; };
+		2EBBC2991853C6C500AC5C4E /* TWPhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBBC2981853C6C500AC5C4E /* TWPhotoDetailViewController.m */; };
 		2EED6443184682DC00BF93DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EED6442184682DC00BF93DF /* Foundation.framework */; };
 		2EED6445184682DC00BF93DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EED6444184682DC00BF93DF /* CoreGraphics.framework */; };
 		2EED6447184682DC00BF93DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EED6446184682DC00BF93DF /* UIKit.framework */; };
@@ -57,6 +58,8 @@
 		2EBBC291185386C300AC5C4E /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		2EBBC294185388EC00AC5C4E /* TWPictureDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWPictureDataTransformer.h; sourceTree = "<group>"; };
 		2EBBC295185388EC00AC5C4E /* TWPictureDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPictureDataTransformer.m; sourceTree = "<group>"; };
+		2EBBC2971853C6C500AC5C4E /* TWPhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWPhotoDetailViewController.h; sourceTree = "<group>"; };
+		2EBBC2981853C6C500AC5C4E /* TWPhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPhotoDetailViewController.m; sourceTree = "<group>"; };
 		2EED643F184682DC00BF93DF /* Thousand Words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Thousand Words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EED6442184682DC00BF93DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2EED6444184682DC00BF93DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -155,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				2EED647C18468AA900BF93DF /* Storyboard.storyboard */,
+				2EBBC2971853C6C500AC5C4E /* TWPhotoDetailViewController.h */,
+				2EBBC2981853C6C500AC5C4E /* TWPhotoDetailViewController.m */,
 				2EB6C83F184BC7C10024F44D /* TWPhotosCollectionViewController.h */,
 				2EB6C840184BC7C10024F44D /* TWPhotosCollectionViewController.m */,
 				2EB6C842184BD42D0024F44D /* TWPhotoCollectionViewCell.h */,
@@ -308,6 +313,7 @@
 				2EBBC28F185386C300AC5C4E /* Album.m in Sources */,
 				2EED6458184682DC00BF93DF /* Thousand_Words.xcdatamodeld in Sources */,
 				2EBBC296185388EC00AC5C4E /* TWPictureDataTransformer.m in Sources */,
+				2EBBC2991853C6C500AC5C4E /* TWPhotoDetailViewController.m in Sources */,
 				2EBBC292185386C300AC5C4E /* Photo.m in Sources */,
 				2EBA8847184ACD0F00851D15 /* TWCoreDataHelper.m in Sources */,
 			);
