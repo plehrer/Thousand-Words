@@ -163,16 +163,20 @@
 	TWPhotoCollectionViewCell *selectedCell = (TWPhotoCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
 	self.photo.image = selectedCell.imageView.image;
 	
-	NSError *error = nil;
-	
-	// call save to update the image in core data for us
-	if (![[self.photo managedObjectContext] save:&error]) {
-		// handle error;
-		NSLog(@"%@", error);
+	// Fix blank image bug. When we select a cell we want to ensure that the cell has an image
+	if (self.photo.image) {
+		
+		NSError *error = nil;
+		
+		// call save to update the image in core data for us
+		if (![[self.photo managedObjectContext] save:&error]) {
+			// handle error;
+			NSLog(@"%@", error);
+		}
+		
+		// pop view controller from stack and dismiss it
+		[self.navigationController popViewControllerAnimated:YES];
 	}
-	
-	// pop view controller from stack and dismiss it
-	[self.navigationController popViewControllerAnimated:YES];
 }
 
 
