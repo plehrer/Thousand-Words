@@ -114,6 +114,9 @@
 	// convert to UIImage
 	UIImage *finalImage = [UIImage imageWithCGImage:cgImage];
 	
+	// to find our what we actually stored in core data. coer data may not be the best place to persist images. A better place would be to save the image is in the file system. This would optimize it. You would store a URL address in core data and the address will have the place the image is stored in the file system to optimize the storing process.
+	NSLog(@"Look at all of this data %@", UIImagePNGRepresentation(finalImage));
+	
 	return finalImage;
 }
 
