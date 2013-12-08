@@ -115,7 +115,7 @@
 	UIImage *finalImage = [UIImage imageWithCGImage:cgImage];
 	
 	// to find our what we actually stored in core data. coer data may not be the best place to persist images. A better place would be to save the image is in the file system. This would optimize it. You would store a URL address in core data and the address will have the place the image is stored in the file system to optimize the storing process.
-	NSLog(@"Look at all of this data %@", UIImagePNGRepresentation(finalImage));
+	// NSLog(@"Look at all of this data %@", UIImagePNGRepresentation(finalImage));
 	
 	return finalImage;
 }
@@ -129,7 +129,23 @@
 	
 	TWPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
 	cell.backgroundColor = [UIColor whiteColor];
-	cell.imageView.image = [self filteredImageFromImage:self.photo.image andFilter:self.filters[indexPath.row]];
+	
+	// dispatch_queue_create is a c function not an objective c function, notice no @ sign in from of quote, this is beause it is a constant char
+	// create queue for multithreading using Grand Central Dispatch (GCD)
+	dispatch_queue_t filterQueue = dispatch_queue_create("filter queue", NULL);
+	
+	// switch to the filter queue and push it onto another thread and perform function filteredImageFromImage. This had been causing a bottle neck. We can then update the UI asynchronously and as the filtered images come available the UI on the main thread will be updated
+	// must add semicolons after each block
+	dispatch_async(filterQueue, ^{
+		UIImage *filteredImage = [self filteredImageFromImage:self.photo.image andFilter:self.filters[indexPath.row]];
+		// switch back to to the main queue and and do UI changes that is the cell image
+		dispatch_async(dispatch_get_main_queue(), ^{
+			cell.imageView.image = filteredImage;
+		});
+	});
+	
+	// next line is no longer needed because we run it inside the filter queue with Grand Central Dispatch
+	//cell.imageView.image = [self filteredImageFromImage:self.photo.image andFilter:self.filters[indexPath.row]];
 	
 	return cell;
 }
