@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EB4F9D61853E74B005A1ACE /* TWFiltersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4F9D51853E74B005A1ACE /* TWFiltersCollectionViewController.m */; };
 		2EB6C841184BC7C10024F44D /* TWPhotosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6C840184BC7C10024F44D /* TWPhotosCollectionViewController.m */; };
 		2EB6C844184BD42D0024F44D /* TWPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6C843184BD42D0024F44D /* TWPhotoCollectionViewCell.m */; };
 		2EB6C846184BD95C0024F44D /* Astronaut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2EB6C845184BD95C0024F44D /* Astronaut.jpg */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2EB4F9D41853E74B005A1ACE /* TWFiltersCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWFiltersCollectionViewController.h; sourceTree = "<group>"; };
+		2EB4F9D51853E74B005A1ACE /* TWFiltersCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWFiltersCollectionViewController.m; sourceTree = "<group>"; };
 		2EB6C83F184BC7C10024F44D /* TWPhotosCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWPhotosCollectionViewController.h; sourceTree = "<group>"; };
 		2EB6C840184BC7C10024F44D /* TWPhotosCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPhotosCollectionViewController.m; sourceTree = "<group>"; };
 		2EB6C842184BD42D0024F44D /* TWPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWPhotoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				2EED647C18468AA900BF93DF /* Storyboard.storyboard */,
+				2EB4F9D41853E74B005A1ACE /* TWFiltersCollectionViewController.h */,
+				2EB4F9D51853E74B005A1ACE /* TWFiltersCollectionViewController.m */,
 				2EBBC2971853C6C500AC5C4E /* TWPhotoDetailViewController.h */,
 				2EBBC2981853C6C500AC5C4E /* TWPhotoDetailViewController.m */,
 				2EB6C83F184BC7C10024F44D /* TWPhotosCollectionViewController.h */,
@@ -306,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EED6451184682DC00BF93DF /* main.m in Sources */,
+				2EB4F9D61853E74B005A1ACE /* TWFiltersCollectionViewController.m in Sources */,
 				2EB6C841184BC7C10024F44D /* TWPhotosCollectionViewController.m in Sources */,
 				2EB6C844184BD42D0024F44D /* TWPhotoCollectionViewCell.m in Sources */,
 				2EED6455184682DC00BF93DF /* TWAppDelegate.m in Sources */,
